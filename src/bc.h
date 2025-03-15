@@ -17,10 +17,10 @@ typedef struct {
 #define dyd(n, t) static inline instr_t n(int x, int y){return (instr_t){ t, x, y, 0 };}
 #define mon(n, t) static inline instr_t n(int x, int y){return (instr_t){ t, x, 0, 0 };}
 
-mon(mkpush, PUSH);
-mon(mkpop,  POP);
-mon(mkload, LOAD);
-mon(mkcall, CALL);
+mon(mkpush, PUSH)
+mon(mkpop,  POP)
+mon(mkload, LOAD)
+mon(mkcall, CALL)
 
-dyd(mkcpy,  CPY);
-dyd(mklit,  LIT);
+dyd(mkcpy,  CPY)
+dyd(mklit,  LIT)

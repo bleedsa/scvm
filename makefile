@@ -1,18 +1,18 @@
 all: scvm
 
 CC = gcc
-CFLAGS = -O3 -Wall -Wextra -pedantic
+CFLAGS = -O3 -Wall
 O = o
 
 $(O):
 	mkdir -p $(O)
 
-size: $(O) size.c $(O)/*.o *.h
+size: $(O) src/size.c $(O)/*.o src/*.h
 	$(CC) $(CFLAGS) -o $(O)/size src/size.c
-	@./size
+	@$(O)/size
 
 C = $(CC) $(CFLAGS) -c -o
-$(O)/*.o: $(O) *.c *.h
+$(O)/*.o: $(O) src/*.c src/*.h
 	$(C) $(O)/asm.o	src/asm.c
 	$(C) $(O)/vm.o	src/vm.c
 	$(C) $(O)/0.o	src/0.c
